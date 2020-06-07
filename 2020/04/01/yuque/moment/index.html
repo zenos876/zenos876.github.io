@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1. GMT 格林威治时间格林尼治标准时间（英语：Greenwich Mean Time，GMT）是指位于英国伦敦郊区的皇家格林尼治天文台当地的平太阳时，因为本初子午线被定义为通过那里的经线。格林尼治标准时间的正午是指当平太阳横穿格林尼治子午线时（也就是在格林尼治上空最高点时）的时间。由于地球每天的自转是有些不规则的，而且正在缓慢减速，因此格林尼治平时基于天文观测本身的缺陷，已经被原子钟报时的协调">
+<meta property="og:type" content="article">
+<meta property="og:title" content="moment">
+<meta property="og:url" content="http://yoursite.com/2020/04/01/yuque/moment/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. GMT 格林威治时间格林尼治标准时间（英语：Greenwich Mean Time，GMT）是指位于英国伦敦郊区的皇家格林尼治天文台当地的平太阳时，因为本初子午线被定义为通过那里的经线。格林尼治标准时间的正午是指当平太阳横穿格林尼治子午线时（也就是在格林尼治上空最高点时）的时间。由于地球每天的自转是有些不规则的，而且正在缓慢减速，因此格林尼治平时基于天文观测本身的缺陷，已经被原子钟报时的协调">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-31T17:23:12.000Z">
+<meta property="article:modified_time" content="2020-06-07T17:11:10.844Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/01/yuque/moment/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>moment | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/01/yuque/moment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          moment
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-01 01:23:12" itemprop="dateCreated datePublished" datetime="2020-04-01T01:23:12+08:00">2020-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-08 01:11:10" itemprop="dateModified" datetime="2020-06-08T01:11:10+08:00">2020-06-08</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="1-GMT-格林威治时间"><a href="#1-GMT-格林威治时间" class="headerlink" title="1. GMT 格林威治时间"></a>1. GMT 格林威治时间</h1><p>格林尼治标准时间（英语：Greenwich Mean Time，GMT）是指位于英国伦敦郊区的皇家格林尼治天文台当地的平太阳时，因为本初子午线被定义为通过那里的经线。<br>格林尼治标准时间的正午是指当平太阳横穿格林尼治子午线时（也就是在格林尼治上空最高点时）的时间。由于地球每天的自转是有些不规则的，而且正在缓慢减速，因此格林尼治平时基于天文观测本身的缺陷，已经被原子钟报时的协调世界时（UTC）所取代。</p>
+<h1 id="2-协调世界时"><a href="#2-协调世界时" class="headerlink" title="2. 协调世界时"></a>2. 协调世界时</h1><p>协调世界时（英语：Coordinated Universal Time，法语：Temps Universel Coordonné，简称 UTC）是最主要的世界时间标准，其以原子时秒长为基础，在时刻上尽量接近于格林威治标准时间。<br>对于大多数用途来说，UTC 时间被认为能与 GMT 时间互换，但 GMT 时间已不再被科学界所确定。</p>
+<h1 id="3-moment-js"><a href="#3-moment-js" class="headerlink" title="3. moment.js"></a>3. moment.js</h1><p>从字符串创建 moment 时, 我们首先检查字符串是否与已知的 ISO 8601 格式匹配，如果找不到已知格式, 我们检查字符串是否与 RFC 2822 日期时间格式匹配</p>
+<h2 id="3-1-定义-moment-对象"><a href="#3-1-定义-moment-对象" class="headerlink" title="3.1 定义 moment 对象"></a>3.1 定义 moment 对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">"Fri, 28 Feb 2020 11:30:00 GMT"</span>;</span><br><span class="line"><span class="keyword">const</span> date = moment(str);</span><br></pre></td></tr></table></figure>
+
+<p>返回一个 moment 对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">date: Moment</span><br><span class="line">_isAMomentObject: <span class="literal">true</span></span><br><span class="line">_i: <span class="string">"Fri, 28 Feb 2020 11:30:00 GMT"</span></span><br><span class="line">_tzm: <span class="number">0</span></span><br><span class="line">_isUTC: <span class="literal">false</span></span><br><span class="line">_pf: &#123;<span class="attr">empty</span>: <span class="literal">false</span>, <span class="attr">unusedTokens</span>: <span class="built_in">Array</span>(<span class="number">0</span>), <span class="attr">unusedInput</span>: <span class="built_in">Array</span>(<span class="number">0</span>), <span class="attr">overflow</span>: <span class="number">-1</span>, <span class="attr">charsLeftOver</span>: <span class="number">0</span>, …&#125;</span><br><span class="line">_locale: Locale &#123;<span class="attr">_calendar</span>: &#123;…&#125;, <span class="attr">_longDateFormat</span>: &#123;…&#125;, <span class="attr">_invalidDate</span>: <span class="string">"Invalid date"</span>, <span class="attr">_dayOfMonthOrdinalParse</span>: <span class="regexp">/\d&#123;1,2&#125;(th|st|nd|rd)/</span>, <span class="attr">ordinal</span>: ƒ, …&#125;</span><br><span class="line">_d: Fri Feb <span class="number">28</span> <span class="number">2020</span> <span class="number">19</span>:<span class="number">30</span>:<span class="number">00</span> GMT+<span class="number">0800</span> (中国标准时间) &#123;&#125;</span><br><span class="line">_isValid: <span class="literal">true</span></span><br><span class="line">__proto__: <span class="built_in">Object</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-可以添加解析的字符串格式"><a href="#3-2-可以添加解析的字符串格式" class="headerlink" title="3.2 可以添加解析的字符串格式"></a>3.2 可以添加解析的字符串格式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date2 = moment(str, <span class="string">"YYYY-MM-DD HH:mm"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>解析错误对象属性中的_isValid 将为 false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">date2: Moment</span><br><span class="line">_isAMomentObject: <span class="literal">true</span></span><br><span class="line">_i: <span class="string">"Fri, 28 Feb 2020 11:30:00 GMT"</span></span><br><span class="line">_f: <span class="string">"HH:mm"</span></span><br><span class="line">_isUTC: <span class="literal">false</span></span><br><span class="line">_pf: &#123;<span class="attr">empty</span>: <span class="literal">false</span>, <span class="attr">unusedTokens</span>: <span class="built_in">Array</span>(<span class="number">0</span>), <span class="attr">unusedInput</span>: <span class="built_in">Array</span>(<span class="number">3</span>), <span class="attr">overflow</span>: <span class="number">3</span>, <span class="attr">charsLeftOver</span>: <span class="number">24</span>, …&#125;</span><br><span class="line">_locale: Locale &#123;<span class="attr">_calendar</span>: &#123;…&#125;, <span class="attr">_longDateFormat</span>: &#123;…&#125;, <span class="attr">_invalidDate</span>: <span class="string">"Invalid date"</span>, <span class="attr">_dayOfMonthOrdinalParse</span>: <span class="regexp">/\d&#123;1,2&#125;(th|st|nd|rd)/</span>, <span class="attr">ordinal</span>: ƒ, …&#125;</span><br><span class="line">_d: Invalid <span class="built_in">Date</span> &#123;&#125;</span><br><span class="line">_isValid: <span class="literal">false</span></span><br><span class="line">__proto__: <span class="built_in">Object</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-以某种方式来显示当前时刻。"><a href="#3-3-以某种方式来显示当前时刻。" class="headerlink" title="3.3 以某种方式来显示当前时刻。"></a>3.3 以某种方式来显示当前时刻。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date_str = moment(<span class="string">"Fri, 28 Feb 2020 11:30:00 GMT"</span>).format(<span class="string">"HH:mm"</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date_str: <span class="string">"19:30"</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-自定义"><a href="#4-自定义" class="headerlink" title="4. 自定义"></a>4. 自定义</h1><p>默认是以本地时间进行显示的， 当服务器返回的时间是不包含时区信息的本地时间时如（Fri, 28 Feb 2020 11:30:00 GMT），本地时间为北京时间时将会默认加 8 小时</p>
+<h2 id="对服务器返回的时间加以修正"><a href="#对服务器返回的时间加以修正" class="headerlink" title="对服务器返回的时间加以修正"></a>对服务器返回的时间加以修正</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">"moment"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> correct_gmt_time = (</span><br><span class="line">  gmt_time = <span class="string">"Fri, 28 Feb 2020 11:30:00 GMT"</span>,</span><br><span class="line">  fmt = <span class="string">"YYYY-MM-DD HH:mm:ss"</span>,</span><br><span class="line">  timezone = <span class="string">"+0800"</span></span><br><span class="line">) =&gt; moment(gmt_time + timezone).format(fmt);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date2_str: <span class="string">"11:30"</span>;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/01/yuque/socket.io/" rel="prev" title="socket.io">
+      <i class="fa fa-chevron-left"></i> socket.io
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/14/yuque/test/" rel="next" title="test">
+      test <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-GMT-格林威治时间"><span class="nav-number">1.</span> <span class="nav-text">1. GMT 格林威治时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-协调世界时"><span class="nav-number">2.</span> <span class="nav-text">2. 协调世界时</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-moment-js"><span class="nav-number">3.</span> <span class="nav-text">3. moment.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-定义-moment-对象"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 定义 moment 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-可以添加解析的字符串格式"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 可以添加解析的字符串格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-以某种方式来显示当前时刻。"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 以某种方式来显示当前时刻。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-自定义"><span class="nav-number">4.</span> <span class="nav-text">4. 自定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对服务器返回的时间加以修正"><span class="nav-number">4.1.</span> <span class="nav-text">对服务器返回的时间加以修正</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
